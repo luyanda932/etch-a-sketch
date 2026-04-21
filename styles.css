@@ -1,0 +1,11 @@
+#gridcontainer {
+    
+}
+
+.grid-cell {
+    background-color: cadetblue;
+}
+
+.grid-cell:hover {
+    background-color: darkorchid;
+}
