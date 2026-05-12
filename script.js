@@ -1,8 +1,5 @@
 // Selecting the container element and setting its display properties
-const container = document.querySelector("#grid-container");
-container.style.display = "flex";
-container.style.flexWrap = "wrap";
-container.style.width = "1000px"; // Set a fixed width for the container
+const container = document.querySelector("#grid-container");// Set a fixed width for the container
 
 // Function to create a grid of specified rows and columns
 function createGrid(rows, cols) {
@@ -14,6 +11,16 @@ function createGrid(rows, cols) {
     cell.style.border = "1px solid black";
     cell.style.boxSizing = "border-box"; // Ensures border doesn't break the width
     container.appendChild(cell);
+  }
+
+  // Adding event listeners to each cell for mouseover and mouseout events
+  for (const child of container.children) {
+    child.addEventListener("mouseover", () => {
+      child.style.backgroundColor = getRandomRgb();
+    });
+    child.addEventListener("mouseout", () => {
+      child.style.backgroundColor = "cadetblue";
+    });
   }
 }
 
@@ -41,16 +48,6 @@ changeGridButton.addEventListener("click", () => {
     }
   }
 });
-
-// Adding event listeners to each cell for mouseover and mouseout events
-for (const child of container.children) {
-  child.addEventListener("mouseover", () => {
-    child.style.backgroundColor = getRandomRgb();
-  });
-  child.addEventListener("mouseout", () => {
-    child.style.backgroundColor = "cadetblue";
-  });
-}
 
 // Function to generate a random RGB color
 function getRandomRgb() {
